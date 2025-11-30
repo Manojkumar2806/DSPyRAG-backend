@@ -29,6 +29,20 @@ app.include_router(chat_router, prefix="/api/chat", tags=["chat"])
 app.include_router(system_router, prefix="/api/system", tags=["system"])
 app.include_router(medical_router, prefix="/api/medical", tags=["medical"])
 
+# compatibility shim — put at top of main.py before other imports
+try:
+    import openai  # noqa: E401
+    from openai import AuthenticationError  # try direct import
+except Exception:
+    try:
+        import openai as _openai
+        import openai.error as _oe
+        # ensure openai.AuthenticationError exists for legacy imports
+        setattr(_openai, "AuthenticationError", getattr(_oe, "AuthenticationError", Exception))
+    except Exception:
+        pass
+
+
 @app.get("/")
 def root():
     return {"message": "MedSage API Running", "status": "ok"}
