@@ -16,7 +16,5 @@ pydub
 pillow
 dspy
 google-generativeai
-genai
-tiktoken
 
-# pip install fastapi "uvicorn[standard]" qdrant-client==1.7.3 fastembed python-multipart PyPDF2 python-docx python-pptx pandas openpyxl requests beautifulsoup4 lxml SpeechRecognition pydub pillow dspy google-generativeai tiktoken
+# pip install fastapi "uvicorn[standard]" qdrant-client==1.7.3 fastembed python-multipart PyPDF2 python-docx python-pptx pandas openpyxl requests beautifulsoup4 lxml SpeechRecognition pydub pillow dspy google-generativeai 
