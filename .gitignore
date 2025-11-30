@@ -8,3 +8,4 @@ __pycache__
 instance/
 .venv/
 venv/   
+.env
